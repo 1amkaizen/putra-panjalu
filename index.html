@@ -26,6 +26,26 @@
             -webkit-backdrop-filter: blur(12px);
         }
     </style>
+    <style>
+        /* Animasi pulse biar makin cakep */
+        .playing {
+            animation: pulse-blue 2s infinite;
+        }
+    
+        @keyframes pulse-blue {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+            }
+    
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+            }
+    
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-slate-50 text-slate-900">
@@ -528,6 +548,78 @@
                 </div>
             </div>
             </footer>
+
+            <div class="fixed bottom-6 left-6 z-[60]" data-aos="fade-right" data-aos-delay="1000">
+                <div
+                    class="bg-white/90 backdrop-blur-lg border border-slate-200 p-2 rounded-full shadow-2xl flex items-center gap-3 pr-6">
+                    <button id="music-toggle"
+                        class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-700 transition-all group relative">
+                        <span id="music-wave" class="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-0"></span>
+                        <i id="music-icon" class="fas fa-play ml-1 relative z-10"></i>
+                    </button>
+                    <div class="flex flex-col">
+                        <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest leading-none mb-1">Now
+                            Playing</span>
+                        <span class="text-xs font-extrabold text-slate-800 leading-none truncate w-24">Promosi Ceria</span>
+                    </div>
+            
+                    <audio id="promo-music" loop autoplay>
+                        <source src="bs.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+            
+            <script>
+                const musicBtn = document.getElementById('music-toggle');
+                const audio = document.getElementById('promo-music');
+                const musicIcon = document.getElementById('music-icon');
+                const musicWave = document.getElementById('music-wave');
+                let isPlaying = false;
+
+                function playMusic() {
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        musicIcon.classList.remove('fa-play', 'ml-1');
+                        musicIcon.classList.add('fa-pause');
+                        musicWave.classList.remove('opacity-0');
+                        musicBtn.classList.add('playing');
+                    }).catch(error => {
+                        console.log("Autoplay diblokir browser, menunggu interaksi user...");
+                    });
+                }
+
+                // Coba putar otomatis saat load
+                window.addEventListener('load', playMusic);
+
+                // Trik: Kalau autoplay gagal, putar saat user pertama kali klik atau scroll
+                const unlockAudio = () => {
+                    if (!isPlaying) playMusic();
+                    document.removeEventListener('click', unlockAudio);
+                    document.removeEventListener('scroll', unlockAudio);
+                };
+                document.addEventListener('click', unlockAudio);
+                document.addEventListener('scroll', unlockAudio);
+
+                musicBtn.addEventListener('click', () => {
+                    if (isPlaying) {
+                        audio.pause();
+                        musicIcon.classList.remove('fa-pause');
+                        musicIcon.classList.add('fa-play', 'ml-1');
+                        musicWave.classList.add('opacity-0');
+                        musicBtn.classList.remove('playing');
+                    } else {
+                        audio.play();
+                        musicIcon.classList.remove('fa-play', 'ml-1');
+                        musicIcon.classList.add('fa-pause');
+                        musicWave.classList.remove('opacity-0');
+                        musicBtn.classList.add('playing');
+                    }
+                    isPlaying = !isPlaying;
+                });
+            </script>
+            
+
             <script>
                 // === LOGIC NAVIGASI MOBILE ===
                 const btn = document.getElementById('mobile-menu-button');
