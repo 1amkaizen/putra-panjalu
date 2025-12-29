@@ -30,7 +30,7 @@
 
 <body class="bg-slate-50 text-slate-900">
 
-    <nav class="fixed w-full z-50 glass-nav border-b border-slate-200">
+    <nav class="fixed w-full z-50 glass-nav border-b border-slate-200 bg-white/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center gap-2">
@@ -40,26 +40,49 @@
                     </div>
                     <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">Putra Panjalu 2</span>
                 </div>
-
+    
                 <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
                     <a href="#home" class="hover:text-blue-600 transition-all">Beranda</a>
                     <a href="#produk" class="hover:text-blue-600 transition-all">Produk</a>
                     <a href="#lokasi" class="hover:text-blue-600 transition-all">Lokasi</a>
                 </div>
-
+    
                 <div class="hidden md:block">
                     <a href="https://wa.me/6282129271910?text=Halo%20Putra%20Panjalu%202%2C%20saya%20ingin%20melakukan%20pemesanan%20produk..."
                         target="_blank"
                         class="bg-yellow-400 text-blue-900 px-6 py-3 rounded-full font-bold hover:bg-yellow-500 transition-all shadow-lg shadow-yellow-100">
                         Order Via WA
-                    </a>          </div>
-
+                    </a>
+                </div>
+    
                 <div class="md:hidden">
-                    <button class="text-slate-800"><i class="fas fa-bars text-2xl"></i></button>
+                    <button id="mobile-menu-button" class="text-slate-800 p-2 focus:outline-none">
+                        <i class="fas fa-bars text-2xl" id="hamburger-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-b border-slate-200 absolute w-full left-0 shadow-xl transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home"
+                    class="block px-4 py-3 text-slate-700 font-bold hover:bg-blue-50 hover:text-blue-600 rounded-xl">Beranda</a>
+                <a href="#produk"
+                    class="block px-4 py-3 text-slate-700 font-bold hover:bg-blue-50 hover:text-blue-600 rounded-xl">Produk</a>
+                <a href="#lokasi"
+                    class="block px-4 py-3 text-slate-700 font-bold hover:bg-blue-50 hover:text-blue-600 rounded-xl">Lokasi</a>
+                <div class="pt-4 px-4">
+                    <a href="https://wa.me/6282129271910"
+                        class="flex items-center justify-center gap-2 bg-yellow-400 text-blue-900 w-full py-4 rounded-2xl font-bold shadow-lg shadow-yellow-100">
+                        <i class="fab fa-whatsapp"></i> Order Sekarang
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
+    
+
 
     <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -500,6 +523,35 @@
                 </div>
             </div>
             </footer>
+            <script>
+                const btn = document.getElementById('mobile-menu-button');
+                const menu = document.getElementById('mobile-menu');
+                const icon = document.getElementById('hamburger-icon');
+                const links = menu.querySelectorAll('a');
+
+                btn.addEventListener('click', () => {
+                    // Toggle Menu
+                    menu.classList.toggle('hidden');
+
+                    // Ganti Icon Bars ke Times (X) kalau kebuka
+                    if (menu.classList.contains('hidden')) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    } else {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    }
+                });
+
+                // Otomatis tutup menu kalau link diklik
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    });
+                });
+            </script>
 </body>
 
 </html>
