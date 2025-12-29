@@ -103,10 +103,15 @@
                             class="bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-xl shadow-blue-200">
                             Cek Katalog Produk
                         </a>
-                        <div class="flex items-center gap-3 px-6 py-4 bg-yellow-50 rounded-2xl border border-yellow-200">
-                            <span class="flex h-3 w-3 rounded-full bg-green-500 animate-pulse"></span>
-                            <span class="font-bold text-yellow-800 text-sm">Buka Setiap Hari: 06:00 - 22:00</span>
-                        </div>
+                        <div id="status-toko"
+                            class="flex items-center gap-3 px-6 py-4 rounded-2xl border transition-all duration-500 shadow-sm">
+                            <span id="status-dot" class="flex h-3 w-3 rounded-full animate-pulse"></span>
+                        
+                            <div class="flex flex-col items-start">
+                                <span id="status-text"
+                                    class="font-black uppercase text-[10px] tracking-widest leading-none mb-1">Memuat...</span>
+                                <span class="font-bold text-slate-700 text-sm leading-none">Buka: 06:00 - 22:00</span>
+                            </div>                  </div>
                     </div>
                 </div>
                 <div class="lg:w-1/2 w-full">
@@ -524,34 +529,58 @@
             </div>
             </footer>
             <script>
+                // === LOGIC NAVIGASI MOBILE ===
                 const btn = document.getElementById('mobile-menu-button');
                 const menu = document.getElementById('mobile-menu');
                 const icon = document.getElementById('hamburger-icon');
                 const links = menu.querySelectorAll('a');
 
                 btn.addEventListener('click', () => {
-                    // Toggle Menu
                     menu.classList.toggle('hidden');
-
-                    // Ganti Icon Bars ke Times (X) kalau kebuka
                     if (menu.classList.contains('hidden')) {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
+                        icon.classList.replace('fa-times', 'fa-bars');
                     } else {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
+                        icon.classList.replace('fa-bars', 'fa-times');
                     }
                 });
 
-                // Otomatis tutup menu kalau link diklik
                 links.forEach(link => {
                     link.addEventListener('click', () => {
                         menu.classList.add('hidden');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
+                        icon.classList.replace('fa-times', 'fa-bars');
                     });
                 });
-            </script>
+
+                // === LOGIC STATUS BUKA/TUTUP TOKO ===
+                function updateStoreStatus() {
+                    const now = new Date();
+                    const hour = now.getHours();
+                    const container = document.getElementById('status-toko');
+                    const dot = document.getElementById('status-dot');
+                    const text = document.getElementById('status-text');
+
+                    // Pastikan elemen ada di halaman sebelum jalanin script
+                    if (!container || !dot || !text) return;
+
+                    const isOpen = hour >= 6 && hour < 22;
+
+                    if (isOpen) {
+                        container.classList.add('bg-green-50', 'border-green-200');
+                        dot.classList.add('bg-green-500');
+                        text.innerText = "Toko Sedang Buka";
+                        text.classList.add('text-green-600');
+                    } else {
+                        container.classList.add('bg-red-50', 'border-red-200');
+                        dot.classList.add('bg-red-500');
+                        dot.classList.remove('animate-pulse');
+                        text.innerText = "Toko Sedang Tutup";
+                        text.classList.add('text-red-600');
+                    }
+                }
+
+                // Jalankan saat halaman siap
+                document.addEventListener('DOMContentLoaded', updateStoreStatus);
+               </script>
 </body>
 
 </html>
