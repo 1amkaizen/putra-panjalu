@@ -46,6 +46,17 @@
             }
         }
     </style>
+    <style>
+        /* CSS biar scrollbar gak ngerusak desain di mobile */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
 
 <body class="bg-slate-50 text-slate-900">
@@ -64,6 +75,7 @@
                 <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
                     <a href="#home" class="hover:text-blue-600 transition-all">Beranda</a>
                     <a href="#produk" class="hover:text-blue-600 transition-all">Produk</a>
+                    <a href="#galeri" class="hover:text-blue-600 transition-all">Galeri</a>
                     <a href="#lokasi" class="hover:text-blue-600 transition-all">Lokasi</a>
                 </div>
     
@@ -90,6 +102,8 @@
                     class="block px-4 py-3 text-slate-700 font-bold hover:bg-blue-50 hover:text-blue-600 rounded-xl">Beranda</a>
                 <a href="#produk"
                     class="block px-4 py-3 text-slate-700 font-bold hover:bg-blue-50 hover:text-blue-600 rounded-xl">Produk</a>
+                <a href="#galeri"
+                    class="block px-4 py-3 text-slate-700 font-bold hover:bg-blue-50 hover:text-blue-600 rounded-xl">Galeri</a>
                 <a href="#lokasi"
                     class="block px-4 py-3 text-slate-700 font-bold hover:bg-blue-50 hover:text-blue-600 rounded-xl">Lokasi</a>
                 <div class="pt-4 px-4">
@@ -170,202 +184,242 @@
                     </p>
                 </div>
         
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+                <div class="flex flex-col gap-8 md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-8">
         
-                    <div class="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <div class="absolute top-4 left-4 md:top-8 md:left-8 z-10">
-                            <span
-                                class="bg-yellow-400 text-blue-900 text-[8px] md:text-[10px] font-bold px-2 md:px-3 py-1 rounded-full uppercase">Best
-                                Seller</span>
+                    <div class="flex flex-col md:contents">
+                        <div class="flex md:contents overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-4 md:pb-0">
+                            <div class="min-w-[70%] md:min-w-0 snap-center group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
+                                data-aos="fade-up" data-aos-delay="100">
+                                <div class="absolute top-4 left-4 md:top-8 md:left-8 z-10">
+                                    <span
+                                        class="bg-yellow-400 text-blue-900 text-[8px] md:text-[10px] font-bold px-2 md:px-3 py-1 rounded-full uppercase">Best
+                                        Seller</span>
+                                </div>
+                                <div
+                                    class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
+                                    <img src="kresek.jpg" alt="Kantong Kresek"
+                                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="px-1 md:px-2">
+                                    <h3
+                                        class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
+                                        Kantong Kresek HD</h3>
+                                    <p
+                                        class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
+                                        HDPE / PE Putih & Hitam</p>
+                                </div>
+                            </div>
+        
+                            <div class="min-w-[70%] md:min-w-0 snap-center group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
+                                data-aos="fade-up" data-aos-delay="200">
+                                <div
+                                    class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
+                                    <img src="tw.jpg" alt="Thinwall"
+                                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="px-1 md:px-2">
+                                    <h3
+                                        class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
+                                        Thinwall Sekat</h3>
+                                    <p
+                                        class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
+                                        BPA Free & Microwave Safe</p>
+                                </div>
+                            </div>
+        
+                            <div class="min-w-[70%] md:min-w-0 snap-center group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
+                                data-aos="fade-up" data-aos-delay="300">
+                                <div
+                                    class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
+                                    <img src="kn.jpg" alt="Kertas Nasi"
+                                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="px-1 md:px-2">
+                                    <h3
+                                        class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
+                                        Kertas Nasi</h3>
+                                    <p
+                                        class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
+                                        Laminated Anti Lengket</p>
+                                </div>
+                            </div>
+        
+                            <div class="min-w-[70%] md:min-w-0 snap-center group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
+                                data-aos="fade-up" data-aos-delay="400">
+                                <div
+                                    class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
+                                    <img src="cup.jpg" alt="Gelas Plastik"
+                                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="px-1 md:px-2">
+                                    <h3
+                                        class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
+                                        Cup Plastik / Gelas</h3>
+                                    <p
+                                        class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
+                                        OVAL / DATAR All Size</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
-                            <img src="kresek.jpg" alt="Kantong Kresek"
-                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        </div>
-                        <div class="px-1 md:px-2">
-                            <h3
-                                class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
-                                Kantong Kresek HD</h3>
-                            <p
-                                class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
-                                HDPE / PE Putih & Hitam</p>
+                        <div class="flex md:hidden justify-center gap-2 mt-2">
+                            <div class="h-1 w-8 bg-blue-600 rounded-full"></div>
+                            <div class="h-1 w-2 bg-slate-200 rounded-full"></div>
+                            <div class="h-1 w-2 bg-slate-200 rounded-full"></div>
+                            <div class="h-1 w-2 bg-slate-200 rounded-full"></div>
                         </div>
                     </div>
         
-                    <div class="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <div class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
-                            <img src="tw.jpg" alt="Thinwall"
-                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        </div>
-                        <div class="px-1 md:px-2">
-                            <h3
-                                class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
-                                Thinwall Sekat</h3>
-                            <p
-                                class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
-                                BPA Free & Microwave Safe</p>
-                        </div>
-                    </div>
+                    <div class="flex flex-col md:contents">
+                        <div class="flex md:contents overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-4 md:pb-0">
+                            <div class="min-w-[70%] md:min-w-0 snap-center group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
+                                data-aos="fade-up" data-aos-delay="100">
+                                <div
+                                    class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
+                                    <img src="bk.jpeg" alt="Bahan Kue"
+                                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="px-1 md:px-2">
+                                    <h3
+                                        class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
+                                        Bahan Kue</h3>
+                                    <p
+                                        class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
+                                        Tepung, Mentega & Pewarna</p>
+                                </div>
+                            </div>
         
-                    <div class="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
-                        data-aos="fade-up" data-aos-delay="300">
-                        <div class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
-                            <img src="kn.jpg" alt="Kertas Nasi"
-                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        </div>
-                        <div class="px-1 md:px-2">
-                            <h3
-                                class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
-                                Kertas Nasi</h3>
-                            <p
-                                class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
-                                Laminated Anti Lengket</p>
-                        </div>
-                    </div>
+                            <div class="min-w-[70%] md:min-w-0 snap-center group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
+                                data-aos="fade-up" data-aos-delay="200">
+                                <div
+                                    class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
+                                    <img src="ultah.jpg" alt="Alat Ulang Tahun"
+                                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="px-1 md:px-2">
+                                    <h3
+                                        class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
+                                        Alat Ulang Tahun</h3>
+                                    <p
+                                        class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
+                                        Balon, Lilin & Topi Pesta</p>
+                                </div>
+                            </div>
         
-                    <div class="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
-                        data-aos="fade-up" data-aos-delay="400">
-                        <div class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
-                            <img src="cup.jpg" alt="Gelas Plastik"
-                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        </div>
-                        <div class="px-1 md:px-2">
-                            <h3
-                                class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
-                                Cup Plastik / Gelas</h3>
-                            <p
-                                class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
-                                OVAL / DATAR All Size</p>
-                        </div>
-                    </div>
+                            <div class="min-w-[70%] md:min-w-0 snap-center group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
+                                data-aos="fade-up" data-aos-delay="300">
+                                <div
+                                    class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
+                                    <img src="stp.webp" alt="Standing Pouch"
+                                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="px-1 md:px-2">
+                                    <h3
+                                        class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
+                                        Standing Pouch</h3>
+                                    <p
+                                        class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
+                                        Zipper Plastik & Alufoil</p>
+                                </div>
+                            </div>
         
-                    <div class="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <div class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
-                            <img src="bk.jpeg" alt="Bahan Kue"
-                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="min-w-[70%] md:min-w-0 snap-center group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
+                                data-aos="fade-up" data-aos-delay="400">
+                                <div class="absolute top-4 left-4 md:top-8 md:left-8 z-10">
+                                    <span
+                                        class="bg-yellow-400 text-blue-900 text-[8px] md:text-[10px] font-bold px-2 md:px-3 py-1 rounded-full uppercase">Promo</span>
+                                </div>
+                                <div
+                                    class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
+                                    <img src="lakban.jpg" alt="Lakban"
+                                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="px-1 md:px-2">
+                                    <h3
+                                        class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
+                                        Lakban</h3>
+                                    <p
+                                        class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
+                                        Daimaru / Bening / Cokelat</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="px-1 md:px-2">
-                            <h3
-                                class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
-                                Bahan Kue</h3>
-                            <p
-                                class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
-                                Tepung, Mentega & Pewarna</p>
-                        </div>
-                    </div>
-        
-                    <div class="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <div class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
-                            <img src="ultah.jpg" alt="Alat Ulang Tahun"
-                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        </div>
-                        <div class="px-1 md:px-2">
-                            <h3
-                                class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
-                                Alat Ulang Tahun</h3>
-                            <p
-                                class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
-                                Balon, Lilin & Topi Pesta</p>
-                        </div>
-                    </div>
-        
-                    <div class="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
-                        data-aos="fade-up" data-aos-delay="300">
-                        <div class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
-                            <img src="stp.webp" alt="Standing Pouch"
-                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        </div>
-                        <div class="px-1 md:px-2">
-                            <h3
-                                class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
-                                Standing Pouch</h3>
-                            <p
-                                class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
-                                Zipper Plastik & Alufoil</p>
-                        </div>
-                    </div>
-        
-                    <div class="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
-                        data-aos="fade-up" data-aos-delay="400">
-                        <div class="absolute top-4 left-4 md:top-8 md:left-8 z-10">
-                            <span
-                                class="bg-yellow-400 text-blue-900 text-[8px] md:text-[10px] font-bold px-2 md:px-3 py-1 rounded-full uppercase">Promo</span>
-                        </div>
-                        <div class="aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
-                            <img src="lakban.jpg" alt="Lakban"
-                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        </div>
-                        <div class="px-1 md:px-2">
-                            <h3
-                                class="font-bold text-slate-800 text-sm md:text-xl mb-1 group-hover:text-blue-600 transition-colors truncate">
-                                Lakban</h3>
-                            <p
-                                class="text-[9px] md:text-sm text-slate-400 mb-2 uppercase tracking-tighter font-semibold truncate">
-                                Daimaru / Bening / Cokelat</p>
+                        <div class="flex md:hidden justify-center gap-2 mt-2">
+                            <div class="h-1 w-8 bg-blue-600 rounded-full"></div>
+                            <div class="h-1 w-2 bg-slate-200 rounded-full"></div>
+                            <div class="h-1 w-2 bg-slate-200 rounded-full"></div>
+                            <div class="h-1 w-2 bg-slate-200 rounded-full"></div>
                         </div>
                     </div>
         
                 </div>
             </div>
-            </section>
+        </section>
         
-        <section id="galeri" class="py-24 bg-blue-50 relative">
+        <section id="galeri" class="py-24 bg-blue-50 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-200/20 rounded-full blur-3xl"></div>
         
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-4xl md:text-5xl font-black text-slate-900 italic">Lihat <span class="text-blue-600">Toko
-                            Kami</span></h2>
-                    <p class="text-slate-500 mt-4 max-w-2xl mx-auto font-medium">Suasana belanja nyaman dengan ketersediaan stok
-                        yang selalu terjaga untuk kepuasan Anda.</p>
-                </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                        Eksplorasi <span class="relative inline-block text-blue-600">
+                            <span class="relative z-10 italic">Galeri Toko</span>
+                            <span class="absolute bottom-1 left-0 w-full h-3 bg-blue-100 -z-10"></span>
+                        </span>
+                    </h2>
+                
+                    <p class="text-slate-500 mt-6 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+                        Menghadirkan kenyamanan belanja dengan <span class="text-slate-800 font-bold">stok terlengkap</span> dan
+                        <span class="text-slate-800 font-bold">kualitas produk terjamin</span>. Lihat lebih dekat dedikasi kami dalam
+                        melayani kebutuhan Anda.
+                    </p>          </div>
         
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-[600px] md:h-[700px]">
-                    <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-[2.5rem] shadow-2xl"
-                        data-aos="zoom-in">
-                        <img src="1.jpeg" alt="Toko Utama"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:grid-flow-row-dense">
+        
+                    <div class="md:row-span-2 relative group overflow-hidden rounded-[2rem] shadow-xl" data-aos="zoom-in">
+                        <img src="img/1.jpeg" alt="Toko" class="w-full h-full object-cover">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex items-end">
-                            <p class="text-white font-bold text-xl">Area Parkir Luas & Lokasi Strategis</p>
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-6 flex items-end opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white font-bold">Utama</p>
                         </div>
                     </div>
         
-                    <div class="relative group overflow-hidden rounded-[2.5rem] shadow-lg" data-aos="zoom-in"
+                    <div class="md:row-span-2 relative group overflow-hidden rounded-[2rem] shadow-lg" data-aos="zoom-in"
                         data-aos-delay="100">
-                        <img src="1.jpeg" alt="Gudang Plastik"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
-                        <div
-                            class="absolute inset-0 bg-blue-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="text-white font-black text-sm uppercase tracking-widest">Stok Plastik</span>
-                        </div>
+                        <img src="img/2.jpeg" alt="Stok" class="w-full h-full object-cover">
                     </div>
         
-                    <div class="relative group overflow-hidden rounded-[2.5rem] shadow-lg" data-aos="zoom-in"
+                    <div class="md:row-span-2 relative group overflow-hidden rounded-[2rem] shadow-lg" data-aos="zoom-in"
                         data-aos-delay="200">
-                        <img src="1.jpeg" alt="Rak Bahan Kue"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
-                        <div
-                            class="absolute inset-0 bg-blue-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="text-white font-black text-sm uppercase tracking-widest">Bahan Kue</span>
-                        </div>
+                        <img src="img/3.jpeg" alt="Bahan" class="w-full h-full object-cover">
                     </div>
         
-                    <div class="col-span-2 relative group overflow-hidden rounded-[2.5rem] shadow-lg" data-aos="zoom-in"
+                    <div class="md:row-span-2 relative group overflow-hidden rounded-[2rem] shadow-lg" data-aos="zoom-in"
                         data-aos-delay="300">
-                        <img src="1.jpeg" alt="Layanan Kasir"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex items-center">
-                            <p class="text-white font-bold text-lg italic">Pelayanan Cepat & Ramah</p>
-                        </div>
+                        <img src="img/4.jpeg" alt="Layanan" class="w-full h-full object-cover">
                     </div>
-                </div>
         
+                    <div class="md:row-span-2 relative group overflow-hidden rounded-[2rem] shadow-lg" data-aos="zoom-in"
+                        data-aos-delay="400">
+                        <img src="img/5.jpeg" alt="Produk" class="w-full h-full object-cover">
+                    </div>
+        
+                    <div class="md:col-span-2 relative group overflow-hidden rounded-[2rem] shadow-lg border-2 border-blue-100"
+                        data-aos="zoom-in" data-aos-delay="500">
+                        <img src="img/6.jpeg" alt="Rak" class="w-full h-[250px] object-cover">
+                        
+                    </div>
+        
+                    <div class="md:col-span-2 relative group overflow-hidden rounded-[2rem] shadow-lg border-2 border-blue-100"
+                        data-aos="zoom-in" data-aos-delay="600">
+                        <img src="img/7.jpeg" alt="Gudang" class="w-full h-[250px] object-cover">
+                    </div>
+        
+                    <div class="md:row-span-2 relative group overflow-hidden rounded-[2rem] shadow-lg" data-aos="zoom-in"
+                        data-aos-delay="700">
+                        <img src="img/8.jpeg" alt="Display" class="w-full h-full object-cover">
+                    </div>
+        
+                </div>
             </div>
             </section>
 
